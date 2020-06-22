@@ -1,0 +1,21 @@
+﻿@model PeopleWhoMakeFuture.Models.Department
+@{
+    ViewData["Title"] = "Добавление отдела";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Добавление отдела</h1>
+</div>
+<form asp-action="createDepartment" asp-controller="home">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Название</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Floor" class="control-label">Этаж</label>
+        <input type="text" asp-for="Floor" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Добавить" class="btn btn-primary" />
+    </div>
+</form>

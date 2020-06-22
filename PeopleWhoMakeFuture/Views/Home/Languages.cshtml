@@ -1,0 +1,27 @@
+﻿@model IEnumerable<PeopleWhoMakeFuture.Models.Language>
+@{
+    ViewData["Title"] = "Языки";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Список языков программирования</h1>
+    <p>Посмотри, что мы умеем.</p>
+    <p>@Html.ActionLink("Добавить", "CreateLanguage")</p>
+</div>
+<body>
+    <div class="text-center">
+        <table class="table">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                <th></th>
+            </tr>
+            @foreach (var language in Model)
+            {
+                <tr>
+                    <td>@language.Name</td>
+                    <td>@Html.ActionLink("Изменить", "EditLanguage", new { id = language.ID })</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>

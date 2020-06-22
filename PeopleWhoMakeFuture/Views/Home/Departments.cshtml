@@ -1,0 +1,29 @@
+﻿@model IEnumerable<PeopleWhoMakeFuture.Models.Department>
+@{
+    ViewData["Title"] = "Отделы";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Список отделов</h1>
+    <p>Здесь ты сможешь сориентироваться, где находится нужный отдел.</p>
+    <p>@Html.ActionLink("Добавить", "CreateDepartment")</p>
+</div>
+<body>
+    <div class="text-center">
+        <table class="table">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.Floor)</th>
+                <th></th>
+            </tr>
+            @foreach (var department in Model)
+            {
+                <tr>
+                    <td>@department.Name</td>
+                    <td>@department.Floor</td>
+                    <td>@Html.ActionLink("Изменить", "EditDepartment", new { id = department.ID })</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>

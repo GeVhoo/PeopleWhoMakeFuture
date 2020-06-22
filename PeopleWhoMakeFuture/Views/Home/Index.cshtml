@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PeopleWhoMakeFuture.Models.Employee>
+@{
+    ViewData["Title"] = "Сотрудники";
+}
+
+<div class="text-center">
+    <h1 class="display-4">People Who Make Future</h1>
+    <p>Узнай в каком отделе работают и какие языки программирования используют наши сотрудники.</p>
+</div>
+<body>
+    <div class="text-center">
+        <h3>Список сотрудников</h3>
+        <p>
+            @Html.ActionLink("Добавить", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+                <th>@Html.DisplayNameFor(model => model.SecondName)</th>
+                <th>@Html.DisplayNameFor(model => model.Age)</th>
+                <th>@Html.DisplayNameFor(model => model.DepartmentID)</th>
+                <th>@Html.DisplayNameFor(model => model.LanguageID)</th>
+                <th></th>
+            </tr>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.SecondName</td>
+                    <td>@employee.Age</td>
+                    <td>@employee.Department.Name</td>
+                    <td>@employee.Language.Name</td>
+                    <td>
+                        @Html.ActionLink("Изменить", "Edit", new { id = employee.ID }) |
+                        @Html.ActionLink("Удалить", "Delete", new { id = employee.ID })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
